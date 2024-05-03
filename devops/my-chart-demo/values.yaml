@@ -1,0 +1,9 @@
+# my-chart/values.yaml
+appName: nodewebapp
+replicas: 3
+containerName: test
+image: gdevtestex/test:latest
+minReplicas: 2
+maxReplicas: 5
+targetCPUUtilizationPercentage: 50
+namespace: default
