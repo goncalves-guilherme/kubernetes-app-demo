@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  nodejs:
+      build:
+        context: .
+        dockerfile: deploy/docker/Dockerfile
+      container_name: nodejs
+      ports:
+        - "3000:3000"
+      depends_on:
+        - mongodb
+
+volumes:
+  mongodb_data:
