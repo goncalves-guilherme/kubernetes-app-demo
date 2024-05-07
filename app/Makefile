@@ -17,12 +17,10 @@ down:
 	docker-compose down
 
 clean:
-	docker-compose down --volumes --remove-orphans
-	docker volume prune -f
-	docker image prune -a -f
-	docker container prune -f
+	docker-compose down --volumes --remove-orphans --rmi all
 
 publish:
-	docker push gdevtestex/test:lastest
+	docker-compose build
+	docker-compose push 
 
 .PHONY: default build run down clean

@@ -9,11 +9,12 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  nodejs:
+  app:
       build:
         context: .
         dockerfile: deploy/docker/Dockerfile
-      container_name: nodejs
+      image: gdevtestex/test
+      container_name: app
       ports:
         - "3000:3000"
       depends_on:
